@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class App {
+
+    /*  This project validates two user-provided integers, generates one random integer, 
+    produces their sum and displays it along with each variable's value as output.
+    */
+    
+    public static void main(String[] args) {
+        // Source: https://www.w3schools.com/java/java_howto_add_two_numbers.asp
+        int operand1, operand2, operand3, finalResult;
+        
+        // Create the ability to caputure keyboard input.
+        Scanner myObj = new Scanner (System.in);
+        
+        // Prompt for the first integer and store it.
+        System.out.println("Type an integer:");
+        
+        // Validate the keyboard input for the first integer.
+        if (myObj.hasNextInt() == false)  {
+            System.out.println("Sorry, you must enter an integer.");
+            return;
+        } else {
+            operand1 = myObj.nextInt();
+        }
+        
+        // Prompt for the second integer and store it.
+        System.out.println("Type another integer:");
+        
+        // Validate the keyboard input for the second integer.
+        if (myObj.hasNextInt() == false)  {
+            System.out.println("Sorry, you must enter an integer.");
+            return;
+        } else {
+            operand2 = myObj.nextInt();
+        } 
+        
+        // Generate random number between 00 to 100
+        { 
+          operand3 = (int)(Math.random() * 101);
+        }
+        
+        // Display the values of each variable, calculate the final result and display it.
+        {  
+        finalResult = operand1 + operand2 + operand3;
+        System.out.println("operand1: " + operand1);
+        System.out.println("operand2: " + operand2);
+        System.out.println("operand3: " + operand3); 
+        System.out.println("Sum is: " + finalResult);
+        }
+    
+        
+    }
+    
+    }
