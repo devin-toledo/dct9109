@@ -1,0 +1,195 @@
+import random
+
+race_choice = input("Which race and gender would you like to generate a name for?\n"
+                    "(Choices are: Altmer(High Elf), Argonian, Bosmer(Wood Elf), Breton, Dunmer(Dark Elf)\n"
+                    "              Imperial, Khajiit, Nord, Orsimer(Orc) and Redguard.) "
+                    "\n              (Use the following case-sensitive format: nord and male):")
+male_altmer_names = ["Lorion","Thaloril","Elendil","Caladon","Alarion","Thranduil","Galadriel","Eldrion",
+                     "Aerendil","Celeborn","Erevan","Elros","Aerandir","Thalion","Arannis","Thalendor",
+                     "Elendir","Caelan","Aldaron","Elrian","Valarian","Maethor","Eladriel","Alathar",
+                     "Faelion","Anduril","Erevon","Eldamar","Gildor","Elrian","Aeril","Galathil",
+                     "Thalamar","Faelandir","Eldarion","Alaric","Celethor","Thalassar","Eladan","Tharion",
+                     "Calion","Aerendir","Galathorn","Elrohir","Aelrindel","Thelrion","Erevandil",
+                     "Caelandil","Valandil","Alandil","Thalorin"]
+female_altmer_names = ["Lorelei","Thalara","Elysia","Calanthe","Alariel","Thalindra","Galadriel","Eldariel",
+                       "Aeris","Celestia","Aerwen","Elara","Aeriana","Thalassa","Arwen","Thalindra",
+                       "Elowen","Caelia","Aldara","Elanor","Valeria","Maethril","Elenwe","Alathriel","Faela",
+                       "Andromeda","Erendis","Eldara","Gildorien","Elara","Aeris","Galathena","Thalindra",
+                       "Faeloria","Eldariel","Aleris","Celestine","Thalara","Eladriel","Thalassa","Calanthe",
+                       "Aerienne","Galadriel","Elanwe","Aralem","Therindra","Caelia","Valerian","Alandra",
+                       "Thalindra","Elenia","Aeris"]
+male_argonian_names = ["Xanath","Jaree-Ra","Quen","Gee-Rus","Nee-Set","Ku-Julan","Veezara","Dee-Jay","Meejapa",
+                       "Hee-Lan","Zee-Tel","Dreeta","Feeds-on-Grass","Oo-Mee-Sa","Teeba-Enoo","Razum-Dar","Dreeg-Jarak",
+                       "Haj-Ei","Saxhleel","Mahei-Jee","Keerasa-Tan","Tee-Wan","Beem-Kiurz","Thinks-with-Belly",
+                       "Ushmeek","Sahkee-Teeus","Bulb-Na","Ejaxx-Saxhee","Haj-Ei","Jekka-Wass Vozei","Ra'Zhid",
+                       "Zulaiha-Ja","Mazidahr","Gah-Ju","Deeg","Shehs","Za-Ja","Dahrza","Weel-Keex","Nisira",
+                       "Hixiit","Geet-Gah","Moxaxle","Sa-Ikshei","Heel-Ri","Xiith","Nim-Aza","Ja'Shavi",
+                       "Gaharsa","Silmgeet"]
+female_argonian_names = ["Hee-Sook","Jeeg-Lei","Rajhin-Gee","Shee-Keeus","Ojel-Lei","Quen-Tee","Va-Keesei",
+                         "Razeeza","Mee-Ei","Keema-Ku","Hissmir-Hee","Xaja-Tee","Nee-Kah","Zan-Khee",
+                         "Teel-Keeus","Tee-Meeza","Tah-Tee","Kasa-Keema","Sah-Mee","Shee-Keema","Nah-Mee",
+                         "Zhee-Mai","Ojel-Mee","Dee-Kasa","Razeeza","Meel-Lai","Zhan-Kasa","Xana-Keeus","Kaja-Ra",
+                         "Rajhin-Hee","Nah-Tee","Jeeg-Kasa","Shee-Ei","Quen-Rajhin","Va-Keema","Mee-Tah",
+                         "Keem-Ra","Hee-Kah","Zhee-Keesei","Tah-Rajhin","Kasa-Hee","Nah-Lei","Xana-Kasa",
+                         "Dee-Keeus","Rajhin-Mee","Shee-Ra","Quen-Tah","Va-Mee","Zhan-Keeus","Xaja-Kasa",
+                         "Tee-Lai"]
+male_bosmer_names = ["Faelion","Caladion","Thaloril","Galinwe","Arannis","Elendir","Althran","Ravindil","Nendir",
+                     "Tharion","Erevan","Araneth","Belthil","Celethor","Haladon","Valarian","Eldoril","Aldarion",
+                     "Maethor","Elaran","Caelen","Thalion","Farandir","Lorandil","Thaladir","Arandor","Haelion",
+                     "Virendil","Galathil","Thaloril","Eldorin","Eladriel","Calithor","Arathorn","Lorien",
+                     "Caladris","Faelion","Thranduil","Ravandir","Eldarian","Halden","Maelon","Arannis",
+                     "Eldacar","Althran","Valeril","Thalador","Celeborn","Arandor","Galinwe","Araneth",
+                     "Elendir"]
+female_bosmer_names = ["Faela","Caladra","Thalindra","Gweneth","Arwen","Elenwe","Althrine","Ravanya","Nimeth",
+                       "Tharinya","Ereveth","Araneth","Belthil","Celethra","Haladra","Valeris","Eldoril",
+                       "Aldariel","Maethra","Elara","Caelia","Thalira","Farandriel","Lorawen","Thaladir",
+                       "Aranda","Haela","Virendra","Galadra","Thalora","Eldoril","Eladriel","Calithra",
+                       "Aravel","Lorien","Caladria","Faela","Thrandriel","Ravanya","Eldaria","Haldriel",
+                       "Maelara","Arwen","Eldara","Althrine","Valeria","Thalindra","Celestia","Aranda",
+                       "Gweneth","Araneth","Elenwe"]
+male_breton_names = ["Adrien","Emile","Lucien","Mathieu","Bastien","Julien","Sebastien","Antoine","Gabriel",
+                     "Olivier","Pierre","Francois","Gael","Remy","Clement","Vincent","Yves","Hugo","Maxime",
+                     "Raphael","Damien","Tristan","Louis","Thibault","Guillaume","Edouard","Alexandre",
+                     "Cedric","Samuel","Theo","Valentin","Benjamin","Alexis","Jerome","Nicolas","Fabien",
+                     "Arthur","Yann","Jonathan","Corentin","Nathan","Etienne","Martin","Daniel","Leo",
+                     "Victor","Benoit","Maxence","Arnaud","Paul","David"]
+female_breton_names = ["Maelis","Anaelle","Elouan","Enora","Louna","Morgane","Maelys","Tifenn","Erell",
+                       "Ysaline","Eva","Lena","Anaïs","Lea","Julia","Lola","Clara","Ines","Louise","Emma",
+                       "Chloé","Camille","Manon","Sarah","Jade","Lucie","Léa","Zoe","Eva","Lina","Adele",
+                       "Mathilde","Rose","Lilou","Alice","Juliette","Elsa","Lou","Agathe","Charlotte",
+                       "Louane","Ambre","Jeanne","Margaux","Laura","Lisa","Romane","Clemence","Anna",
+                       "Pauline","Louise"]
+male_dunmer_names = ["Aldos","Alval","Andel","Aron","Arvin","Avrus","Aymar","Banus","Bongond","Cylben",
+                     "Delos","Diram","Dovyn","Drels","Eris","Eronor","Erver","Farwil","Felas","Felen",
+                     "Ferul","Frathen","Gilen","Gureryne","Hlanas","Hloval","Ilvel","Kiliban","Kovan",
+                     "Kylius","Mels","Modryn","Mondrar","Nilphas","Nivan","Olyn","Othrelos","Ralsa","Ralvas",
+                     "Raynil","Redas","Rendil","Rythe","Slythe","Soris","Syndelius","Tovas","Ulen","Valen",
+                     "Varel","Varon"]
+female_dunmer_names = ["Adosi","Alves","Arvena","Boderi","Bralsa","Davela","Dervera","Dovesi","Dralora","Drarana",
+                       "Dredena","Falanu","Gadeneri","Glistel","Llathasa","Llensi","Llevana","Malyani","Melisi",
+                       "Mensa","Mirili","Mivryna","Myvryna","Nardhil","Norasa","Noveni","Ralsa","Relmyna",
+                       "Satha","Saveri","Tadrose","Tanasa","Tilse","Tivela","Tolisi","Tolvasa","Ulene","Undena",
+                       "Uravasa","Urnsi", "Felara","Adril","Giden","Sendust","Tullas","Zanil","Thalas","Voruse","Sero",
+                       "Tarel"]
+male_imperial_names = ["Aurelius","Maximus","Julius","Lucius","Tiberius","Cassius","Valerius","Decimus","Marcellus",
+                       "Antonius","Octavius","Quintus","Titus","Marcus","Severus","Varius","Caius","Flavius",
+                       "Gaius","Nero","Augustus","Hadrian","Trajan","Constantine","Cicero","Caligula","Valentinian",
+                       "Romulus","Aemilius","Aulus","Claudius","Cornelius","Laelius","Pompeius","Proculus","Sextus","Vitellius",
+                       "Crispus","Publius","Gnaeus","Cato","Lucullus","Scaevola","Lentulus","Brutus","Felix",
+                       "Vespasian","Avidius","Caelius","Pulcher","Verus"]
+
+female_imperial_names = ["Aurelia","Maxima","Julia","Lucia","Tiberia","Cassia","Valeria","Decima","Marcella",
+                         "Antonia","Octavia","Quintia","Tatiana","Marcia","Severina","Valeria","Caecilia",
+                         "Flavia","Gaia","Nerina","Augusta","Hadriana","Trajana","Constantina","Cecilia",
+                         "Calpurnia","Valentina","Romula","Aemilia","Aurelia","Claudia","Cornelia","Laetitia",
+                         "Pompeia","Procula","Septima","Vitellia","Crispina","Publicia","Gnaea","Livia",
+                         "Scaevola","Lentula","Brutia","Fabia","Vespasia","Avidia","Caecina","Pulchra","Vera"]
+male_khajiit_names = ["Rajhin","J'zargo","M'aiq","Kharjo","Dro'Zel","Dar'Rakkar","Kazir","Ri'saad","Qua'ron",
+                      "Razum-dar","Gulakhan","Ri'saad","M'jaddha","Ja'darri","Zarum","Razit","Dra'Zhirr",
+                      "Shazir","Azar","Nah'zi","Rah'jirr","Ma'azir","Bazir","Kar'jo","Ri'jirr","Hajir",
+                      "Hazir","Khadir","Nadir","Razzir","Zahir","Ja'Zirr","Nazir","Nizr","Kar'zir","Marzir",
+                      "Khazir","Zar'zirr","Ri'zirr","Kah'jir","Fazir","Dazir","Ghazir","Zar'jirr","Kazirr","Razir","Ra'zirr",
+                      "Mazir","Gazir","Nizir","Shazirr"]
+female_khajiit_names = ["Ri'saara","M'zara","Zar'qa","Dar'mara","S'jira","Kazira","Raz'qi","Qua'la","J'zara",
+                        "Raj'ana","M'zari","Kar'mira","Ri'sava","Zara'ra","Dro'zhara","Nah'zi","Rah'mara",
+                        "Ja'zari","Azara","Raz'ra","Dra'zira","Shazira","Khar'mira","Hazara","Nira'zi",
+                        "Bazara","Kadira","Hajira","Razara","Zah'ra","Ja'zira","Nazira","Ri'zara","Kah'mira",
+                        "Fazira","Dazara","Ghazira","Zara'zi","Kazara","Raz'na","Ra'zara","Mazara","Gazara",
+                        "Nizara","Shazara","S'jari","Kaz'qi","Raz'zi","Zar'ra","Qua'mara","J'zira","Raj'ira",
+                        "M'zira"]
+male_nord_names = ["Ragnar","Bjorn","Ivar","Erik","Leif","Gunnar","Olaf","Harald","Thor","Finn","Sven","Loki",
+                   "Hakon","Viggo","Sigurd","Sten","Tyr","Ulf","Rolf","Gudmund","Rune","Torsten","Einar",
+                   "Ivarr","Vidar","Kjell","Haldor","Hjalmar","Ormr","Gorm","Freyr","Hrafn","Oddr","Egil",
+                   "Ragnvald","Thorkell","Eirikr","Magnus","Hrolf","Bard","Hakonr","Gauti","Geirr","Thorvald",
+                   "Skuli","Tryggvi","Knutr","Eysteinn","Asgeir","Hastein"]
+female_nord_names = ["Freya","Sigrid","Ingrid","Astrid","Elsa","Gudrun","Hilda","Brynja","Liv","Thora","Runa",
+                     "Sigrun","Helga","Ragnhild","Freydis","Sif","Yrsa","Eira","Eir","Hedvig","Gyda","Ylva",
+                     "Alva","Asta","Vigdis","Aslaug","Frigg","Idunn","Ranveig","Signy","Disa","Gunhild","Kara",
+                     "Selma","Jorunn","Ingeborg","Lagertha","Gerd","Thyra","Gunnhild","Svana","Hervor","Dagny",
+                     "Hjordis","Eydis","Solveig","Bodil","Gunnvor","Thyri","Ingibjorg","Oddny"]
+male_orismer_names = ["Grommash","Durotan","Thrall","Gorgrond","Makar","Gorrum","Brogar","Drakka","Throk","Grom",
+                  "Karg","Rogar","Brak","Morg","Lokar","Drek","Narok","Razgar","Darg","Hogar","Mazgar","Vrok",
+                  "Ghur","Gruk","Karn","Drog","Varg","Hakkar","Borak","Rolkar","Zark","Garok","Mazrok","Dorg",
+                  "Throk","Narak","Gorak","Rog","Mog","Durok","Krak","Raghar","Gorok","Molgar","Zugor","Nazgul",
+                  "Borok","Dorgar","Gark","Durogar","Thrag","Zug"]
+female_orismer_names = ["Gronka","Durra","Gorva","Magra","Gromka","Brogga","Draka","Throkka","Gara","Kargra","Rogga",
+                    "Braka","Mazga","Lokka","Dreka","Narva","Razga","Darga","Hogga","Mazka","Vraka","Ghurra",
+                    "Grukka","Karna","Droga","Varga","Hakka","Borka","Rolka","Zarka","Garra","Mazroka","Dorka",
+                    "Throkka","Naraka","Goraka","Rogga","Mogga","Duroka","Kraka","Raghara","Goroka","Molga",
+                    "Zugra","Nazga","Borka","Dorga","Garka","Duroga","Thragga","Zugra","Azga","Drogga"]
+male_redguard_names = ["Saad","Rashid","Yasin","Nasir","Jamal","Khalid","Malik","Hakim","Ibrahim","Aziz",
+                      "Karim","Amir","Tariq","Rafiq","Kadir","Jamil","Zahir","Hamid","Faisal","Nadir","Yousef",
+                      "Sami","Jabbar","Kamal","Mustafa","Hassan","Ahmed","Adil","Fahim","Nabil","Rafi","Zayn",
+                      "Zubair","Amin","Jalil","Mahmoud","Farid","Salim","Zakariya","Asad","Najib","Rasheed",
+                      "Faruq","Ammar","Bilal","Qasim","Yasir","Majid","Naseem","Zain"]
+female_redguard_names = ["Aisha","Layla","Zara","Safiya","Jamila","Farah","Samira","Nadia","Zahra","Amina",
+                         "Leila","Amara","Soraya","Yasmin","Karima","Naima","Fatima","Mariam","Hanan",
+                         "Dalia","Salma","Nadira","Rania","Lina","Sana","Zaina","Muna","Rabia","Hafsa","Dina",
+                         "Fawzia","Ayah","Safia","Maha","Aysha","Nazia","Layan","Jasmine","Nyla","Zainab",
+                         "Shadia","Amira","Sahar","Fatemah","Rasha","Nada","Samar","Amal","Yara","Hala",
+                         "Nour","Zayna"]
+
+
+random_male_altmer_name = random.choice(male_altmer_names)
+random_female_altmer_name = random.choice(female_altmer_names)
+random_male_argonian_name = random.choice(male_argonian_names)
+random_female_argonian_name = random.choice(female_argonian_names)
+random_male_bosmer_name = random.choice(male_bosmer_names)
+random_female_bosmer_name = random.choice(female_bosmer_names)
+random_male_breton_name = random.choice(male_breton_names)
+random_female_breton_name = random.choice(female_breton_names)
+random_male_dunmer_name = random.choice(male_dunmer_names)
+random_female_dunmer_name = random.choice(female_dunmer_names)
+random_male_imperial_name = random.choice(male_imperial_names)
+random_female_imperial_name = random.choice(female_imperial_names)
+random_male_khajiit_name = random.choice(male_khajiit_names)
+random_female_khajiit_name = random.choice(female_khajiit_names)
+random_male_argonian_name = random.choice(male_argonian_names)
+random_female_argonian_name = random.choice(female_argonian_names)
+random_male_nord_name = random.choice(male_nord_names)
+random_female_nord_name = random.choice(female_nord_names)
+random_male_orsimer_name = random.choice(male_orismer_names)
+random_female_orismer_name = random.choice(female_orismer_names)
+random_male_redguard_name = random.choice(male_redguard_names)
+random_female_redguard_name = random.choice(female_redguard_names)
+
+if race_choice == "altmer and male":
+    print("Your generated name is:", random_male_altmer_name)
+if race_choice == "altmer and female":
+    print("Your generated name is:", random_female_altmer_name)
+if race_choice == "argonian and male":
+    print("Your generated name is:", random_male_argonian_name)
+if race_choice == "argonian and female":
+    print("Your generated name is:", random_female_argonian_name)
+if race_choice == "bosmer and male":
+    print("Your generated name is:", random_male_bosmer_name)
+if race_choice == "bosmer and female":
+    print("Your generated name is:", random_female_bosmer_name)
+if race_choice == "breton and male":
+    print("Your generated name is:", random_male_breton_name)
+if race_choice == "breton and female":
+    print("Your generated name is:", random_female_breton_name)
+if race_choice == "dunmer and male":
+    print("Your generated name is:", random_male_dunmer_name)
+if race_choice == "dunmer and female":
+    print("Your generated name is:", random_female_dunmer_name)
+if race_choice == "imperial and male":
+    print("Your generated name is:", random_male_imperial_name)
+if race_choice == "imperial and female":
+    print("Your generated name is:", random_female_imperial_name)
+if race_choice == "khajiit and male":
+    print("Your generated name is:", random_male_khajiit_name)
+if race_choice == "khajiit and female":
+    print("Your generated name is:", random_female_khajiit_name)
+if race_choice == "nord and male":
+    print("Your generated name is:", random_male_nord_name)
+if race_choice == "nord and female":
+    print("Your generated name is:", random_female_nord_name)
+if race_choice == "orsimer and male":
+    print("Your generated name is:", random_male_orsimer_name)
+if race_choice == "orsimer and female":
+    print("Your generated name is:", random_female_orismer_name)
+if race_choice == "redguard and male":
+    print("Your generated name is:", random_male_redguard_name)
+if race_choice == "redguard and female":
+    print("Your generated name is:", random_female_redguard_name)
